@@ -1,4 +1,4 @@
-# Internal Document Q&A Assistant — Prototype
+# Internal Document Q&A Assistant : Prototype
 
 ## What this is
 
@@ -41,7 +41,7 @@ Three model providers are supported via the `MODEL_PROVIDER` env var:
 MODEL_PROVIDER=mock uvicorn app.main:app --reload
 ```
 Note: the mock is a naive keyword matcher, not real language understanding
-— see Known Limitations below. It's there to validate plumbing, not to
+: see Known Limitations below. It's there to validate plumbing, not to
 represent real answer quality.
 
 **2. Ollama (fully free, fully local, real LLM)**
@@ -106,15 +106,15 @@ Approve/reject an answer: `POST /review/{id}` with `{"status": "approved"}`
 
 Ran with `MODEL_PROVIDER=mock` against two sample docs (remote work policy,
 expense policy) and 6 questions, 5 in-scope and 1 deliberately out-of-scope
-("vacation days" — not mentioned in either doc). Full log: `logs/qa_log_export.csv`.
+("vacation days" : not mentioned in either doc). Full log: `logs/qa_log_export.csv`.
 
-## The failure case (required by the assessment)
+## The failure case
 
 The out-of-scope question ("How many vacation days...") should have
 triggered the `NOT_FOUND` response. Instead, the naive mock matcher
 returned a wrong, confidently-worded answer stitched from an unrelated
 sentence. This is exactly the hallucination risk the system prompt (see
-`app/prompt.py`) is designed to prevent for a *real* LLM — the mock's
+`app/prompt.py`) is designed to prevent for a *real* LLM : the mock's
 failure demonstrates why the explicit "don't guess, say NOT_FOUND"
 instruction and the human-review gate both matter: a naive/broken
 component here would have shipped a wrong answer to an employee with no
@@ -122,22 +122,22 @@ visible flag, if not for the mandatory `pending` status catching it before
 release. This log entry was marked `rejected` in the review step.
 
 **Caveat for the write-up:** this specific failure is a mock-matcher
-limitation, not evidence about Claude/Ollama's real behavior — those
+limitation, not evidence about Claude/Ollama's real behavior : those
 should be tested directly with the same out-of-scope question before
 drawing conclusions about the real model's hallucination rate.
 
 ## Known limitations
 
-- No authentication/authorization on endpoints (prototype only — would
+- No authentication/authorization on endpoints (prototype only : would
   need this before any real deployment).
-- Mock provider is a keyword matcher, not a real LLM — only used to
+- Mock provider is a keyword matcher, not a real LLM : only used to
   validate the pipeline's plumbing (logging, review gate, citation
   parsing), not to demonstrate real answer quality.
-- No chunking/retrieval — full-document-in-context won't scale past a
+- No chunking/retrieval : full-document-in-context won't scale past a
   small number of short documents.
 - SQLite logging is fine for a prototype; a real deployment would want a
   proper database with access controls given the log stores full document
   text and questions.
 - Background server processes proved unreliable in the sandbox used to
-  build this (a real deployment environment would not have this issue) —
+  build this (a real deployment environment would not have this issue) :
   noted here for transparency, not as a product limitation.
