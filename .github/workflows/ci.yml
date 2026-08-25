@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Compile Python files
+        run: python -m compileall -q app run_test_cases.py export_logs.py
+      - name: Smoke test application
+        env:
+          MODEL_PROVIDER: mock
+          QA_DB_PATH: /tmp/qa_log.db
+        run: |
+          python -c "from fastapi.testclient import TestClient; from app.main import app; c = TestClient(app); r = c.get('/health'); assert r.status_code == 200; assert r.json() == {'status': 'ok'}"

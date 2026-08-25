@@ -1,0 +1,24 @@
+XYZ Group — Expense Reimbursement Policy (v1.4)
+
+1. Submission Window
+All expense claims must be submitted within 30 days of the expense date
+via the internal Expensely portal. Claims submitted after 30 days require
+Finance Director approval.
+
+2. Receipts
+Receipts are required for any single expense over $25 CAD. Expenses under
+$25 CAD may be self-certified without a receipt, up to a monthly cap of
+$100 CAD in self-certified claims.
+
+3. Travel
+Economy class flights are standard for trips under 6 hours. Business
+class requires VP-level approval and is only available for flights over
+6 hours in duration.
+
+4. Meals
+Meal reimbursement while travelling on company business is capped at $75
+CAD per day, inclusive of tips.
+
+5. Ineligible Expenses
+Alcohol, personal entertainment, and traffic/parking fines are not
+reimbursable under any circumstances.

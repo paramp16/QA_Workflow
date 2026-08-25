@@ -1,0 +1,25 @@
+XYZ Group — Remote Work Policy (v2.3)
+
+1. Eligibility
+Employees who have completed 90 days of continuous employment are eligible
+to apply for a remote work arrangement. Approval is granted by the
+employee's direct manager and must be renewed annually.
+
+2. Work Hours
+Remote employees must be reachable during core hours of 10:00-15:00 in
+their local time zone. Outside core hours, flexible scheduling is
+permitted as long as weekly deliverables are met.
+
+3. Equipment
+The company provides a laptop and a one-time home office stipend of $300
+CAD. Employees are responsible for their own internet connectivity.
+
+4. Data Security
+Remote employees must use the company VPN when accessing internal systems
+and must not save confidential documents to personal, non-encrypted
+devices.
+
+5. Review
+Remote work arrangements are reviewed every 6 months by HR and may be
+revoked if performance metrics fall below team baseline for two
+consecutive quarters.

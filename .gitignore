@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+
+# # Runtime and generated files
+logs/*.db
+# logs/*.csv
+test_results.json
+
+# Local editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
